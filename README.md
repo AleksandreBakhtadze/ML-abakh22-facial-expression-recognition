@@ -205,4 +205,4 @@ Dataset: Kaggle FER2013 (~28,709 train, ~7,178 test images).
     Macro F1: 0.0043.
   დასკვნა: ყველაზე ცუდი შედეგი , Early stopping-მა შეაჩერა.
 
-
+ჯამში გავტესტე 6 მოდელი 
