@@ -7,10 +7,13 @@
 Dataset: Kaggle FER2013 (~28,709 train, ~7,178 test images).
 
 პირველი მიდგომა:
+
   მონაცემების დამუშავება:
+
     Grayscale(), RandomHorizontalFlip(p=0.5), RandomRotation(10).
     Resize(48,48), ToTensor(), Normalize((0.5,), (0.5,)).
   მოდელის არქიტექტურა:
+    
       კონვოლუციური layer-ები:
           3 ბლოკი: Conv2d(1→32→64→128, 3x3, padding=1), ReLU, BatchNorm2d, MaxPool2d(2).
           Output: 128x6x6.
@@ -18,18 +21,21 @@ Dataset: Kaggle FER2013 (~28,709 train, ~7,178 test images).
       Progressive filters, batch norm, and dropout for regularization (Lectures 15-16).
 
   Training და ევალუაცია
+    
     Loss: CrossEntropyLoss
     გაუმჯობესებები:
       პირველი ექსპერიმენტი: Adam (lr=0.001).
       მეორე ექსპერიმენტი: SGD (lr=0.01, momentum=0.9).
       მეტრიცები: Accuracy, precision, recall, F1, confusion matrix (via torchmetrics).
   შედეგები:
+  
   Adam:
   Val Accuracy: 58.69%, Val Loss: 1.0856.
   SGD + Momentum:
   Val Accuracy: 55.92%, Val Loss: 1.1461.
 
 მეორე მიდგომა: 
+  
   მონაცემთა დამუშავება:
     ToTensor(), Normalize(mean=[0.5], std=[0.5]).
     costum FERDataset ამუშავებს CSV პიქსელის მონაცემებს.
